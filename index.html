@@ -536,7 +536,7 @@ Specific syntax
         }
       })
 
-      var mode = 0
+      var mode = 2
       var latexenabledonce = false
       var latexenabled = localStorage.getItem('latex') !== '0'
       var darkmodeenabled = localStorage.getItem('darkmode') == '1'
@@ -546,6 +546,18 @@ Specific syntax
       var mjpd1 = new mjpd()
       togglemathjax(latexenabled)
       toggledarkmode(darkmodeenabled)
+
+      // Markdown-only mode
+      $('#wmd-preview').hide()
+      $('#wmd-input')
+        .show()
+        .css('float', 'none')
+        .css('width', '100%')
+        .css('display', 'block')
+        .focus()
+      $('body').addClass('fixedheight')
+      $('html').addClass('fixedheight')
+
       editor.run()
     </script>
   </body>
